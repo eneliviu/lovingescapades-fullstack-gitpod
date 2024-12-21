@@ -10,11 +10,3 @@ def root_route(request):
     return Response({
         'message': 'Welcome to my drf api!'
     })
-
-
-class HelloView(APIView):
-    permission_classes = (IsAuthenticated,)
-
-    def get(self, request):
-        content = {'message': 'Hello, World!'}
-        return Response(content)
