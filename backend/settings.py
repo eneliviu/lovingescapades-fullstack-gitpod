@@ -21,7 +21,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-au2^b12@+5a0ff4x(-)3(1311e)=#q^@mpb65t+#-wynk9zym5'
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -45,7 +44,6 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -189,7 +187,7 @@ REST_FRAMEWORK = {
 
 # if not DEBUG:
 REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
-    'rest_framework.renderers.BrowsableAPIRenderer',
+    # 'rest_framework.renderers.BrowsableAPIRenderer',
     'rest_framework.renderers.JSONRenderer',
 
 ]
