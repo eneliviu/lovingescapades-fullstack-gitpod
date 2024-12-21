@@ -1,0 +1,7 @@
+###
+
+GET https://dj-api-backend-8cf355e96add.herokuapp.com/ HTTP/1.1
+
+###
+GET https://dj-api-backend-8cf355e96add.herokuapp.com/profiles/ HTTP/1.1
+

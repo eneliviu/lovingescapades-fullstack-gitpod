@@ -29,9 +29,20 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-eneliviu-lovingescapade-8m71rm735nx.ws.codeinstitute-ide.net',
-    'dj-api-backend-8cf355e96add.herokuapp.com',
+    # 'dj-api-backend-8cf355e96add.herokuapp.com',
+    '.herokuapp.com',
+    'https://*.herokuapp.com',
+    'localhost',
+    '127.0.0.1',
 ]
 
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeinstitute-ide.net/",
+    "https://*.herokuapp.com",
+    'https://*.127.0.0.1',
+    "https://8000-eneliviu-lovingescapade-8m71rm735nx.ws.codeinstitute-ide.net"
+]
 
 # Application definition
 
@@ -57,9 +68,11 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
 
-
     'user_profile'
 ]
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 SITE_ID = 1
 
