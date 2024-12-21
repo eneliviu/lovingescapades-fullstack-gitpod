@@ -68,7 +68,11 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
 
-    'user_profile'
+    'profiles',
+    'followers',
+    'likes',
+    'posts',
+    'comments'
 ]
 
 # LOGIN_REDIRECT_URL = '/'
