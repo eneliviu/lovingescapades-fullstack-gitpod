@@ -29,7 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-eneliviu-lovingescapade-8m71rm735nx.ws.codeinstitute-ide.net',
-    # 'dj-api-backend-8cf355e96add.herokuapp.com',
+    'https://dj-api-backend-8cf355e96add.herokuapp.com',
     '.herokuapp.com',
     'https://*.herokuapp.com',
     'localhost',
