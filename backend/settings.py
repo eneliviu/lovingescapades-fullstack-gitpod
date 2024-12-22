@@ -7,9 +7,12 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_ROOT = os.path.join(BASE_DIR, '')
 
-load_dotenv(find_dotenv())
+# load_dotenv(find_dotenv())
+if os.path.exists('env.py'):
+    import env
 
 # Cloudinary storage:
+print(os.environ['CLOUDINARY_URL'])
 CLOUDINARY_URL = os.environ['CLOUDINARY_URL']
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': CLOUDINARY_URL
@@ -24,7 +27,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-eneliviu-lovingescapade-8m71rm735nx.ws.codeinstitute-ide.net',
@@ -112,20 +115,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3'
+        if DEBUG
+        else 'django.db.backends.postgresql',
+        'NAME': BASE_DIR / 'db.sqlite3' if DEBUG
+        else dj_database_url.parse(os.getenv('DATABASE_URL'))
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': dj_database_url.parse(os.getenv('DATABASE_URL'))
-        }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

@@ -12,8 +12,16 @@ urlpatterns = [
 
     # For the browsable API login and logout views
     path('api/', include('rest_framework.urls')),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path(
+        'api-auth/token/',
+        TokenObtainPairView.as_view(),
+        name='token_obtain_pair'
+    ),
+    path(
+        'api-auth/token/refresh/',
+        TokenRefreshView.as_view(),
+        name='token_refresh'
+    ),
 
     path('dj-rest-auth/', include('dj_rest_auth.urls')),
     path(
@@ -23,9 +31,8 @@ urlpatterns = [
 
     # app urls
     path('', include('profiles.urls')),
-    path('', include('followers.urls')),
-    path('', include('likes.urls')),
     path('', include('posts.urls')),
     path('', include('comments.urls')),
-
+    path('', include('likes.urls')),
+    path('', include('followers.urls')),
 ]
