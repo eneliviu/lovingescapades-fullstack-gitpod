@@ -184,9 +184,12 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%d %b %Y',  # day, month abbrev, year 4 digits
 }
 
-# if not DEBUG:
-# REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
-#     'rest_framework.renderers.JSONRenderer',
-#     'rest_framework.renderers.BrowsableAPIRenderer'
+if not DEBUG:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+        'rest_framework.renderers.JSONRenderer',
+    ]
+else:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+        'rest_framework.renderers.BrowsableAPIRenderer'
 
-# ]
+    ]
